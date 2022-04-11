@@ -5,12 +5,16 @@ import "./App.css";
 function App() {
   const [Score, setScore] = useState(76);
   const [Wicket, setWicket] = useState(2);
-  const [Over, setOver] = useState(50);
-  const [Won, setWon] = useState(50);
+  const [Over, setOver] = useState(5);
+  const [Ball, setBall] = useState(0);
+
+  const [Won, setWon] = useState("");
+
   const changeScore = (value) => {
     if (Score < 0) {
       return;
     }
+    won();
     setScore(Score + value);
   };
 
@@ -19,6 +23,24 @@ function App() {
       return;
     }
     setWicket(Wicket + value);
+  };
+
+  // const changeOver = (value) => {
+  //   setOver(Over + value);
+  // };
+
+  const changeBall = (value) => {
+    setBall(Ball + value);
+    if (Ball >= 6) {
+      setBall(0 + value);
+      setOver(Over + value);
+    }
+  };
+
+  const won = (el) => {
+    if (Score >= 99) {
+      setWon("India Won");
+    }
   };
 
   return (
@@ -40,7 +62,7 @@ function App() {
                 // Show Over here in the format: "over.ball" eg: 4.5 means 4th over and 5th ball
                 // if 1 more ball is thrown then over is now 5.0
                 // you have to write logic to form this string from current ball number.
-                Over
+                Over + "." + Ball
               }
             </h1>
           </div>
@@ -66,7 +88,7 @@ function App() {
           <button>Add 1 wicket</button>
         </div>
 
-        <div className="addBall">
+        <div className="addBall" onClick={() => changeBall(1)}>
           <h2>Add ball</h2>
           {/* Increase the total number of balls thrown here. */}
           <button>Add 1</button>
