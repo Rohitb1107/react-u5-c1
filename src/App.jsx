@@ -6,7 +6,7 @@ function App() {
   const [Score, setScore] = useState(76);
   const [Wicket, setWicket] = useState(2);
   const [Over, setOver] = useState(50);
-
+  const [Won, setWon] = useState(50);
   const changeScore = (value) => {
     if (Score < 0) {
       return;
@@ -61,18 +61,22 @@ function App() {
         </div>
 
         <div className="addWicket" onClick={() => changeWicket(1)}>
-          Add Wicket
+          <h2>Add Wicket</h2>
           {/* Increase the count of wicket */}
           <button>Add 1 wicket</button>
         </div>
 
         <div className="addBall">
-          Add ball
+          <h2>Add ball</h2>
           {/* Increase the total number of balls thrown here. */}
           <button>Add 1</button>
         </div>
 
         {/* If score reaches greater than 100, show text "India Won" without quotes in h1 tag with class name 'status' */}
+
+        <div className="won-part">
+          <h1>{Won}</h1>
+        </div>
       </div>
     </>
   );

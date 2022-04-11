@@ -23,23 +23,24 @@ h3 {
 }
 
 button {
-  width: 90px;
-  height: 32px;
+  width: 120px;
+  height: 35px;
   border: 0;
   background-color: teal;
   border-radius: 10px;
   font-size: 1.1em;
   color: aliceblue;
+  margin-left: 1em;
 }
 
-.addScore{
+.addScore, .addWicket, .addBall{
   display: flex;
   justify-content: flex-start;
   margin-left: 2em;
   margin-top: 2em;
 }
 
-.addScore button{
-  margin-left: 1em;
-}
-
+/* .won-part{
+  margin-top: 3em;
+  display: none;
+} */
